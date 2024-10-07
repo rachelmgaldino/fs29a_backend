@@ -22,6 +22,7 @@ app.use((error, request, response, next) => {
     return response.status(500).json({ error: error.message })
     // FIM DO MIDDLEWARE FINAL
 })
-app.listen(3000, '0.0.0.0', () => {
-    console.log("Servidor executando em http://localhost:3000")
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log("Servidor executando")
 })
