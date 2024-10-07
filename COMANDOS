@@ -1,0 +1,8 @@
+npm init -y
+
+npm i express
+npm i nodemon
+npm i sequelize
+npm i pg pg-hstore
+
+npm i express nodemon sequelize pg pg-hstore
