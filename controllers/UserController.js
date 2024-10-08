@@ -25,12 +25,18 @@ class UserController {
     }
 
     async create(request, response){
-        const dados = request.body
-        const criptoPassword = Helpers.generateHashPassword(dados.password)
-        dados.password = criptoPassword;
-    
-        await UserModel.create(dados);
-        return response.json({ message: 'Usuario criado com sucesso' })
+        try {
+            const dados = request.body
+            const criptoPassword = Helpers.generateHashPassword(dados.password)
+            dados.password = criptoPassword;
+        
+            await UserModel.create(dados);
+            return response.json({ message: 'Usuario criado com sucesso' })
+        } catch(e) {
+            return response.status(500).json({ message: e })
+        }
+       
+       
     }
 
     async update (request, response) {
