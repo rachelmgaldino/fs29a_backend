@@ -4,8 +4,10 @@ const PostsRotas = require('./PostsRotas')
 const ProductRotas = require('./ProductRotas')
 const CategoryRotas = require('./CategoryRotas')
 const jwt = require('jsonwebtoken');
+
 const RotasPrivadas = express.Router()
 require('dotenv').config()
+
 // Minhas Rotas Privadas, acessadas apenas com Token
 RotasPrivadas.use((request, response, next) => {
     // const token = request.headers.token || null;

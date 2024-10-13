@@ -5,10 +5,10 @@ const Helpers = {
         const value = CryptoJS.MD5(password).toString()
         return value;
     },
-    formatDateToBr: (dateEn) => {
-        // Converter Data
-        return dateEn;
-    }
+    // formatDateToBr: (dateEn) => {
+    //     // Converter Data
+    //     return dateEn;
+    // }
 }
 
 module.exports = Helpers;

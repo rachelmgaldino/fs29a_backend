@@ -1,8 +1,9 @@
 const express = require('express');
-
 const AuthController = require('../controllers/AuthController');
 const UserController = require('../controllers/UserController');
+
 const RotasPublicas = express.Router();
+
 require('dotenv').config()
 RotasPublicas.get('/publica', (request, response) => {
     return response.send("Publica");

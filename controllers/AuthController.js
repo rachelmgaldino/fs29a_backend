@@ -1,8 +1,8 @@
 const Helpers = require('../helpers/Helpers');
 const UserModel = require('../models/UserModel')
 const jwt = require('jsonwebtoken');
-class AuthController {
 
+class AuthController {
     async login(request, response) {
 
         try {

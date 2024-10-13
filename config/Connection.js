@@ -19,13 +19,22 @@ require('dotenv').config()
 //     database: 'fs29'
 // })
 
+// const Connection = new Sequelize({
+//     dialect: 'postgres',
+//     host: 'dpg-cs27larqf0us73a2s0e0-a',
+//     port:  '5432',
+//     username: 'fs29_banco_user',
+//     password: '8u4jEuXsTcCVSSeIyOOtErzNIjVlKJ0l',
+//     database: 'fs29_banco'
+// })
+
 const Connection = new Sequelize({
     dialect: 'postgres',
-    host: 'dpg-cs27larqf0us73a2s0e0-a',
+    host: 'localhost',
     port:  '5432',
-    username: 'fs29_banco_user',
-    password: '8u4jEuXsTcCVSSeIyOOtErzNIjVlKJ0l',
-    database: 'fs29_banco'
+    username: 'postgres',
+    password: '1234',
+    database: 'fs29'
 })
 
 module.exports = Connection;
