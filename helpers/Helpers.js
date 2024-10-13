@@ -1,5 +1,6 @@
 // const CryptoJS = require('crypto-js')
-const crypto = require("crypto");
+// const crypto = require("crypto");
+const bcrypt = require("bcrypt");
 
 const Helpers = {
   // generateHashPassword: (password) => {
@@ -11,18 +12,22 @@ const Helpers = {
   //     return dateEn;
   // }
 
-  generateHashPassword: (password) => {
-    const value = crypto.createHash("md5").update(password).digest("hex");
-    return value;
+  generateHashPassword: async (password) => {
+    const saltRounds = 10; // Number of salt rounds (10 is a common, secure choice)
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    return hashedPassword;
+  },
+  comparePasswords: async (password, hashedPassword) => {
+    const match = await bcrypt.compare(password, hashedPassword);
+    return match;
   },
 };
 
 module.exports = Helpers;
 
 /* Explanation:
-1. crypto.createHash('md5'):
-This initializes a hash object using the MD5 algorithm.
-2. .update(password):
-Feeds the password string into the hash function.
-3. .digest('hex'):
-Converts the hash to a hexadecimal string, similar to how CryptoJS.MD5(password).toString() works in your original code. */
+1. bcrypt.hash(password, saltRounds):
+Generates a salted hash of the password. The saltRounds parameter controls how many times the hashing algorithm runs (higher values increase security but also processing time).
+2. bcrypt.compare(password, hashedPassword):
+This method securely compares the plain text password provided by the user with the hashed password stored in the database.
+*/
